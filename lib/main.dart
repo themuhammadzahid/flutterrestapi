@@ -1,6 +1,8 @@
 import 'package:flutter/material.dart';
 import 'package:projects/home_screen.dart';
 
+import 'get_photos.dart';
+
 void main() {
   runApp(const MyApp());
 }
@@ -14,7 +16,7 @@ class MyApp extends StatelessWidget {
       theme: ThemeData(
         primarySwatch: Colors.blue,
       ),
-      home: const HomeScreen(),
+      home: const GetPhotos(),
     );
   }
 }

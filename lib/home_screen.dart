@@ -15,15 +15,18 @@ class HomeScreen extends StatefulWidget {
 class _HomeScreenState extends State<HomeScreen> {
   List<PostModel> postModel = [];
   Future<List<PostModel>> getUserList() async {
-    var response =
-        await http.get(Uri.parse('https://jsonplaceholder.typicode.com/users'));
+    postModel.clear();
+    final response =
+        await http.get(Uri.parse('https://jsonplaceholder.typicode.com/posts'));
     var data = jsonDecode(response.body.toString());
     if (response.statusCode == 200) {
       for (Map i in data) {
         postModel.add(PostModel.fromJson(i));
       }
+      print(data.toString());
       return postModel;
     } else {
+
       return postModel;
     }
   }
@@ -44,10 +47,10 @@ class _HomeScreenState extends State<HomeScreen> {
                     return Text("loading...");
                   } else {
                     return ListView.builder(
-                      itemCount: postModel.length,
+                        itemCount: postModel.length,
                         itemBuilder: (context, index) {
-                      return Text(postModel[index].body.toString());
-                    });
+                          return Text(postModel[index].body.toString());
+                        });
                   }
                 }),
           ),
