@@ -3,7 +3,7 @@ import 'dart:convert';
 import 'package:flutter/material.dart';
 import 'package:http/http.dart' as http;
 
-import 'models/PostModel.dart';
+import 'models/posts_model.dart';
 
 class HomeScreen extends StatefulWidget {
   const HomeScreen({Key? key}) : super(key: key);
@@ -13,21 +13,21 @@ class HomeScreen extends StatefulWidget {
 }
 
 class _HomeScreenState extends State<HomeScreen> {
-  List<PostModel> postModel = [];
+  List<PostModel> postsList = [];
   Future<List<PostModel>> getUserList() async {
-    postModel.clear();
+    postsList.clear();
     final response =
         await http.get(Uri.parse('https://jsonplaceholder.typicode.com/posts'));
     var data = jsonDecode(response.body.toString());
     if (response.statusCode == 200) {
       for (Map i in data) {
-        postModel.add(PostModel.fromJson(i));
+        postsList.add(PostModel.fromJson(i));
       }
       print(data.toString());
-      return postModel;
+      return postsList;
     } else {
 
-      return postModel;
+      return postsList;
     }
   }
 
@@ -47,9 +47,9 @@ class _HomeScreenState extends State<HomeScreen> {
                     return Text("loading...");
                   } else {
                     return ListView.builder(
-                        itemCount: postModel.length,
+                        itemCount: postsList.length,
                         itemBuilder: (context, index) {
-                          return Text(postModel[index].body.toString());
+                          return Text(postsList[index].body.toString());
                         });
                   }
                 }),
