@@ -30,7 +30,7 @@ class _GetUsersState extends State<GetUsers> {
     return Scaffold(
       appBar: AppBar(
         centerTitle: true,
-        title: Text('Api Course'),
+        title: Text('Rest Api'),
       ),
       body: Column(
         children: [

@@ -34,7 +34,7 @@ class _UserListState extends State<UserList> {
     return Scaffold(
       appBar: AppBar(
         centerTitle: true,
-        title: Text('Api Course'),
+        title: Text('Rest Api'),
       ),
       body: Column(
         children: [
@@ -54,10 +54,10 @@ class _UserListState extends State<UserList> {
                             padding: const EdgeInsets.all(8.0),
                             child: Column(
                               children: [
-                                ReusbaleRow(title: 'Name', value: snapshot.data![index].name.toString()),
-                                ReusbaleRow(title: 'username', value: snapshot.data![index].username.toString()),
-                                ReusbaleRow(title: 'email', value: snapshot.data![index].email.toString()),
-                                ReusbaleRow(title: 'Address',
+                                ReusableRow(title: 'Name', value: snapshot.data![index].name.toString()),
+                                ReusableRow(title: 'username', value: snapshot.data![index].username.toString()),
+                                ReusableRow(title: 'email', value: snapshot.data![index].email.toString()),
+                                ReusableRow(title: 'Address',
                                     value: snapshot.data![index].address!.geo!.lat.toString()
 
                                 )
@@ -78,9 +78,9 @@ class _UserListState extends State<UserList> {
 
 }
 
-class ReusbaleRow extends StatelessWidget {
+class ReusableRow extends StatelessWidget {
   String title , value ;
-  ReusbaleRow({Key? key , required this.title , required this.value}) : super(key: key);
+  ReusableRow({Key? key , required this.title , required this.value}) : super(key: key);
 
   @override
   Widget build(BuildContext context) {
