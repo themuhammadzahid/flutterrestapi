@@ -1,8 +1,8 @@
 import 'package:flutter/material.dart';
-import 'package:projects/home_screen.dart';
+import 'package:projects/get/home_screen.dart';
 
-import 'UserList.dart';
-import 'get_photos.dart';
+import 'get/UserList.dart';
+import 'get/get_photos.dart';
 
 void main() {
   runApp(const MyApp());

@@ -2,7 +2,7 @@ import 'dart:convert';
 import 'package:flutter/material.dart';
 import 'package:http/http.dart' as http;
 
-import 'models/product_model.dart';
+import '../models/product_model.dart';
 class GetProductsList extends StatefulWidget {
   const GetProductsList({Key? key}) : super(key: key);
 
